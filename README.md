@@ -19,4 +19,5 @@ I used a virtual machine running Windows 10 and Microsoft Sentinel to analyze se
 I will upload:
 - Screenshots from the lab
 - KQL queries I wrote
+
 - Notes from my attack simulations
