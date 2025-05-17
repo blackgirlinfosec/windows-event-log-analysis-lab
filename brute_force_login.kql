@@ -1,0 +1,9 @@
+// Detects accounts with 5 or more failed logon attempts within a 1-hour window.
+// Data Source: DeviceLogonEvents
+
+DeviceLogonEvents
+| where ActionType == "LogonFailed"
+| summarize FailedAttempts = count() 
+          by AccountName, DeviceName, bin(Timestamp, 1h)
+| where FailedAttempts >= 5
+| sort by FailedAttempts desc
