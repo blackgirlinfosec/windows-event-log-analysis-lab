@@ -36,7 +36,7 @@ After detecting brute-force login attempts, I used this query to confirm whether
 - 🧠 Insight: This confirmed a likely brute-force compromise. In a SOC environment, this would trigger escalation to incident response for containment and further investigation.
    ![Successful Login After Failures](successful_login_after_failures.png)
 
-### Step 3: 🧾 Suspicious PowerShell Usage
+### Step 3: 🧨 Suspicious Post-Login Command Execution
 After confirming a successful login by the `root` account, I analyzed system activity to determine whether the account executed any suspicious commands. This step investigates whether the attacker took further action after gaining access.
 
 - ✅ Query: [Suspicious Process Execution](queries/suspicious_process_execution.kql)
