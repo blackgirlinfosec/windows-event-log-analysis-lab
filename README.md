@@ -24,6 +24,7 @@
 - ✅ Query: [Brute Force Login Detection](queries/brute_force_login.kql)
 - 🔍 Outcome: 6 failed logins within one hour from user `jsmith` on `saleh-vm-final`
 - 🧠 Insight: This pattern suggests possible brute-force activity
+- ![Brute Force Query Result](brute_force_query_result.png)
 
 ### Step 2: ✅ Successful Login After Fails
 > I checked if the same user eventually logged in successfully.
