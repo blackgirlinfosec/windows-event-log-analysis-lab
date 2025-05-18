@@ -1,23 +1,57 @@
 # 🧪 Windows Event Log Analysis Lab
 
-## 🔍 What This Lab Is About
-I used a virtual machine running Windows 10 and Microsoft Sentinel to analyze security logs. I focused on things like failed logins and PowerShell commands that could mean something suspicious is happening.
-
 ## 🧠 What I Learned
-- How to read event logs
-- How to create KQL queries
-- What attackers might do with PowerShell
-- How to spot patterns using real logs
+- How to detect brute-force login activity using KQL
+- How to investigate suspicious login patterns with real data
+- How attackers may follow up with PowerShell or network activity
+- How to document an end-to-end security incident like a SOC analyst
 
-## 🛠 Tools I Used
+---
+
+## 🛠️ Tools I Used
 - Microsoft Sentinel
-- Azure Virtual Machine
-- Sysmon
+- Azure Virtual Machine (Windows 10)
+- Sysmon (SwiftOnSecurity config)
 - KQL (Kusto Query Language)
 
-## 🗂 Coming Soon
-I will upload:
-- Screenshots from the lab
-- KQL queries I wrote
+---
 
+## 🔍 Suspicious Login Story Arc: A Lab Walkthrough
+
+### Step 1: 🚫 Brute-Force Login Attempts
+> I started by identifying multiple failed login attempts from the same account within a short window.
+
+- ✅ Query: [Brute Force Login Detection](queries/brute_force_login.kql)
+- 🔍 Outcome: 6 failed logins within one hour from user `jsmith` on `saleh-vm-final`
+- 🧠 Insight: This pattern suggests possible brute-force activity
+
+### Step 2: ✅ Successful Login After Fails
+> I checked if the same user eventually logged in successfully.
+
+- (COMING SOON) Query: successful logon after failed attempts
+- 🧠 Insight: This would confirm a potential account compromise
+
+### Step 3: 🧾 Suspicious PowerShell Usage
+> I investigated whether PowerShell was launched by the same user after login.
+
+- (COMING SOON) Query: PowerShell execution timeline
+- 🧠 Insight: PowerShell activity may indicate script-based attacks or lateral movement
+
+### Step 4: 🌐 External Connections or File Downloads
+> I examined logs to see if the device connected to unknown IPs or downloaded any files.
+
+- (COMING SOON) Query: outbound connections & dropped files
+- 🧠 Insight: File execution or exfiltration behavior supports malicious intent
+
+---
+
+## 🖼️ Coming Soon
+I will upload:
+- Screenshots from Sentinel
+- KQL queries I wrote (brute force, success after fail, PowerShell)
 - Notes from my attack simulations
+
+---
+
+## 🧩 Real-World Value
+This lab mimics what a Tier 1–2 SOC Analyst would do when investigating login anomalies and potential lateral movement. It shows how to pivot from one clue (failed logons) to building a complete story using endpoint telemetry.
