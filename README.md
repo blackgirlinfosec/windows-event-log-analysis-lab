@@ -32,7 +32,7 @@
 After detecting brute-force login attempts, I used this query to confirm whether any accounts eventually logged in successfully—a strong signal of potential compromise.
 
 - ✅ Query: [Successful Login After Failures](queries/successful_login_after_failures.kql)
-- 🔍 Outcome: The `root` account on device `linux-programatic-vr-ena` failed **100 times** and then successfully logged in at **3:55 PM**, just 4 minutes after the last failed attempt.
+- 🔍 Outcome: The `root` account on device `linux-programatic-vr-ena` failed **100 times** and then successfully logged in at **3:55 PM**, just 4 minutes after the last failed attempt at **3:50 PM**.
 - 🧠 Insight: This confirmed a likely brute-force compromise. In a SOC environment, this would trigger escalation to incident response for containment and further investigation.
    ![Successful Login After Failures](successful_login_after_failures.png)
 
