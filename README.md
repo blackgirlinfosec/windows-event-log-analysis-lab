@@ -57,6 +57,12 @@ After observing post-login shell activity, I investigated whether the compromise
 🖼️ Screenshot of query and results:  
 ![External Network Communication](external_network_communication.png)
 
+### 🧩 MITRE Techniques Observed:
+- T1110.001 – Brute Force: Password Guessing
+- T1059.004 – Command and Scripting Interpreter: Unix Shell
+- T1071.001 – Application Layer Protocol: Web Protocols
+
+
 ---
 
 ## 🧠 Lessons Learned
