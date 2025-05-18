@@ -29,10 +29,11 @@
 
 ### Step 2: ✅ Successful Login After Failures
 
-After detecting brute-force login attempts, I used this query to confirm whether any accounts **eventually logged in successfully**—a strong signal of potential compromise.
+After detecting brute-force login attempts, I used this query to confirm whether any accounts eventually logged in successfully—a strong signal of potential compromise.
 
-- ✅  Query: [View the KQL Query](queries/successful_login_after_failures.kql)  
-- 🧠 Insight: This confirmed that user `X` on device `Y` failed 6 times and then succeeded at 3:06 PM, indicating possible credential compromise.
+- ✅ Query: [Successful Login After Failures](queries/successful_login_after_failures.kql)
+- 🔍 Outcome: The `root` account on device `linux-programatic-vr-ena` failed **100 times** and then successfully logged in at **3:55 PM**, just 4 minutes after the last failed attempt.
+- 🧠 Insight: This confirmed a likely brute-force compromise. In a SOC environment, this would trigger escalation to incident response for containment and further investigation.
    ![Successful Login After Failures](successful_login_after_failures.png)
 
 ### Step 3: 🧾 Suspicious PowerShell Usage
