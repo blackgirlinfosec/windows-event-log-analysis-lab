@@ -1,0 +1,8 @@
+DeviceNetworkEvents
+| where Timestamp > ago(4h)
+| where InitiatingProcessAccountName =~ "root"
+| where RemotePort in (21, 22, 80, 443, 8080, 8443)
+   or RemoteUrl startswith "http"
+   or RemoteIP !startswith "10." and RemoteIP !startswith "192.168"
+| project Timestamp, DeviceName, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessFileName, InitiatingProcessCommandLine
+| sort by Timestamp desc
