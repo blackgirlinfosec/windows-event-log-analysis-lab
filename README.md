@@ -37,16 +37,12 @@ After detecting brute-force login attempts, I used this query to confirm whether
    ![Successful Login After Failures](successful_login_after_failures.png)
 
 ### Step 3: 🧾 Suspicious PowerShell Usage
-> I investigated whether PowerShell was launched by the same user after login.
+After confirming a successful login by the `root` account, I analyzed system activity to determine whether the account executed any suspicious commands. This step investigates whether the attacker took further action after gaining access.
 
-- (COMING SOON) Query: PowerShell execution timeline
-- 🧠 Insight: PowerShell activity may indicate script-based attacks or lateral movement
-
-### Step 4: 🌐 External Connections or File Downloads
-> I examined logs to see if the device connected to unknown IPs or downloaded any files.
-
-- (COMING SOON) Query: outbound connections & dropped files
-- 🧠 Insight: File execution or exfiltration behavior supports malicious intent
+- ✅ Query: [Suspicious Process Execution](queries/suspicious_process_execution.kql)
+- 🔍 Outcome: The `root` account on device `linux-programatic-vr-ena` launched multiple instances of `bash` and `sh` within minutes of logging in. Several of these processes were tied to the `waagent` directory, indicating a possible attempt to execute scripts or tamper with system services.
+- 🧠 Insight: The repeated shell activity by `root` post-login suggests a high likelihood of attacker-driven command execution. The attacker may have been staging payloads or using the Azure guest agent path for post-exploitation tasks. In a real-world SOC environment, this pattern would justify immediate host isolation and forensic investigation. 
+![Suspicious Process Execution](suspicious_process_execution.png)
 
 ---
 
