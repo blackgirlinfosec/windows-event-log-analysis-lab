@@ -1,0 +1,7 @@
+DeviceProcessEvents
+| where Timestamp > ago(4h)  // Adjust time as needed
+| where InitiatingProcessAccountName =~ "root"
+| where FileName in~ ("bash", "sh", "wget", "curl", "nc", "python", "pythonaaaa3")
+   or ProcessCommandLine has_any ("wget", "curl", "bash", "chmod", "nc", "python", "reverse", "tcp")
+| project Timestamp, DeviceName, FileName, ProcessCommandLine, InitiatingProcessAccountName, FolderPath
+| sort by Timestamp desc
