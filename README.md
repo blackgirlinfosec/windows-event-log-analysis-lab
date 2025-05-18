@@ -27,11 +27,13 @@
 - 🧠 Insight: This pattern suggests possible brute-force activity. These types of attacks are commonly used in initial access attempts. They highlight the importance of disabling unused accounts, enforcing strong passwords, and using account lockout policies.
 - ![Brute Force Query Result](brute_force_query_result.png)
 
-### Step 2: ✅ Successful Login After Fails
-> I checked if the same user eventually logged in successfully.
+### Step 2: ✅ Successful Login After Failures
 
-- (COMING SOON) Query: successful logon after failed attempts
-- 🧠 Insight: This would confirm a potential account compromise
+After detecting brute-force login attempts, I used this query to confirm whether any accounts **eventually logged in successfully**—a strong signal of potential compromise.
+
+- ✅  Query: [View the KQL Query](queries/successful_login_after_failures.kql)  
+- 🧠 Insight: This confirmed that user `X` on device `Y` failed 6 times and then succeeded at 3:06 PM, indicating possible credential compromise.
+   ![Successful Login After Failures](successful_login_after_failures.png)
 
 ### Step 3: 🧾 Suspicious PowerShell Usage
 > I investigated whether PowerShell was launched by the same user after login.
