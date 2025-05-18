@@ -1,0 +1,14 @@
+DeviceLogonEvents
+| where ActionType == "LogonFailed"
+| summarize FailedAttempts = count(), LastFailTime = max(Timestamp) 
+    by AccountName, DeviceName
+| where FailedAttempts >= 5
+| join kind=inner (
+    DeviceLogonEvents
+    | where ActionType == "LogonSuccess"
+    | summarize FirstSuccessTime = min(Timestamp)
+        by AccountName, DeviceName
+) on AccountName, DeviceName
+| where FirstSuccessTime > LastFailTime
+| project AccountName, DeviceName, FailedAttempts, LastFailTime, FirstSuccessTime
+| sort by FailedAttempts desc
