@@ -40,7 +40,7 @@ After detecting brute-force login attempts, I used this query to confirm whether
 After confirming a successful login by the `root` account, I analyzed system activity to determine whether the account executed any suspicious commands. This step investigates whether the attacker took further action after gaining access.
 
 - ✅ Query: [Suspicious Process Execution](queries/suspicious_process_execution.kql)
-- 🔍 Outcome: The `root` account on device `linux-programatic-vr-ena` launched multiple instances of `bash` and `sh` within minutes of logging in. Several of these processes were tied to the `waagent` directory, indicating a possible attempt to execute scripts or tamper with system services.
+- 🔍 Outcome: The `root` account on device `linux-programatic-vr-ena` launched multiple instances of `bash` and `sh` within minutes of logging in successfully. Several of these processes were tied to the `waagent` directory, indicating a possible attempt to execute scripts or tamper with system services.
 - 🧠 Insight: The repeated shell activity by `root` post-login suggests a high likelihood of attacker-driven command execution. The attacker may have been staging payloads or using the Azure guest agent path for post-exploitation tasks. In a real-world SOC environment, this pattern would justify immediate host isolation and forensic investigation. 
 ![Suspicious Process Execution](suspicious_process_execution.png)
 
