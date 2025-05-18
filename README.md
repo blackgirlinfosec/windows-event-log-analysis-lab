@@ -22,8 +22,8 @@
 > I started by identifying multiple failed login attempts from the same account within a short window.
 
 - ✅ Query: [Brute Force Login Detection](queries/brute_force_login.kql)
-- 🔍 Outcome: 6 failed logins within one hour from user `jsmith` on `saleh-vm-final`
-- 🧠 Insight: This pattern suggests possible brute-force activity
+- 🔍 Outcome: Outcome: Over **100 failed login attempts** detected from account `root` on `linux-target-1` and other Linux-based devices. The `administrator` account on `vm-lab-andre` also saw **88 failed attempts**.
+- 🧠 Insight: This pattern suggests possible brute-force activity. These types of attacks are commonly used in initial access attempts. They highlight the importance of disabling unused accounts, enforcing strong passwords, and using account lockout policies.
 - ![Brute Force Query Result](brute_force_query_result.png)
 
 ### Step 2: ✅ Successful Login After Fails
