@@ -1,18 +1,16 @@
 # 🧪 Windows Event Log Analysis Lab
 
-## 🧠 What I Learned
-- How to detect brute-force login activity using KQL
-- How to investigate suspicious login patterns with real data
-- How attackers may follow up with PowerShell or network activity
-- How to document an end-to-end security incident like a SOC analyst
+## 📝 Introduction
+
+This lab simulates a real-world brute-force attack scenario. The investigation began with a focus on Windows systems, but as the analysis progressed, attention shifted to a compromised Linux-based system (`linux-programatic-vr-ena`). By following this suspicious login story arc, I was able to demonstrate end-to-end investigative thinking and KQL-based detection capabilities across different operating systems.
 
 ---
 
 ## 🛠️ Tools I Used
 - Microsoft Sentinel
-- Azure Virtual Machine (Windows 10)
-- Sysmon (SwiftOnSecurity config)
+- Azure Virtual Machines (Windows & Linux)
 - KQL (Kusto Query Language)
+
 
 ---
 
